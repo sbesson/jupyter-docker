@@ -3,4 +3,4 @@ services:
   - docker
 
 script:
-  - docker build .
+  - if [ "$TRAVIS_PULL_REQUEST" = "true" ]; then ./test.sh; else docker build .; done
